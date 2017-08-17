@@ -1,5 +1,5 @@
 {
-  "name": "HTML mini server",
+  "name": "mini-html-server",
   "version": "0.0.1",
   "description": "Compact node.js server for html/js/css",
   "main": "gulpfile.js",

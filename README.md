@@ -15,3 +15,7 @@ To launch just use gulp default task
 gulp
 ```
 
+Removes the entire distribution folder
+```
+gulp clean
+```
