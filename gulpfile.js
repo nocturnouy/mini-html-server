@@ -4,12 +4,12 @@ var min = require('gulp-uglify');
 var sass = require('gulp-sass');
 var minCss = require('gulp-minify-css');
 var clean = require('gulp-clean');
-var express = require('express');
+var gls = require('gulp-live-server');
 var htmlmin = require('gulp-htmlmin');
 var concat = require('gulp-concat');
 
 //specify local port for testing
-const port = 1515
+const port = 3030
 
 
 gulp.task('compile',['clean'], function() {
@@ -52,13 +52,8 @@ gulp.task('javascript', function(){
 
 
 gulp.task('http-server', function(){
-    var app = express();
-
-    app.use(express.static('dist'));
-
-    app.listen(port, function () {
-      //console.log('Example app listening on port 3000!');
-    });
+    var server = gls.static('dist', port);
+    server.start();
 });
 
 gulp.task('clean', function(){
@@ -66,6 +61,6 @@ gulp.task('clean', function(){
         .pipe(clean());
 });
 
-gulp.task('default', ['compile','http-server'], function() {
+gulp.task('local', ['compile','http-server'], function() {
     console.log('================================================\n=Ready in http://localhost:'+port+'\n================================================')
 });
